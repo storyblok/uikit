@@ -1,3 +1,11 @@
+# SASS/SCSS version of UIkit 3
+
+Take a look at ```gulpfile.js``` to see how the less files are getting converted.
+
+```
+gulp sass && gulp styles
+```
+
 [![uikit banner](https://cloud.githubusercontent.com/assets/321047/21769911/474d7d9e-d681-11e6-9fe0-d95f8ccfd3a9.jpg)](http://getuikit.com/)
 
 # UIkit
