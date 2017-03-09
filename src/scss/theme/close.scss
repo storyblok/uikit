@@ -1,0 +1,34 @@
+//
+// Component: Close
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Component
+// ========================================================================
+
+@mixin hook-close(){
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+    -webkit-transition-property: color, opacity;
+    transition-property: color, opacity;
+}
+
+// @mixin hook-close-hover(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-close-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-close(){}
+// @mixin hook-inverse-close-hover(){}

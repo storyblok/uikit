@@ -1,0 +1,46 @@
+//
+// Component: Label
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+//
+// New
+//
+
+$label-border-radius:                            2px !default;
+$label-text-transform:                           uppercase !default;
+
+
+// Component
+// ========================================================================
+
+@mixin hook-label(){
+    border-radius: $label-border-radius;
+    text-transform: $label-text-transform;
+}
+
+
+// Color modifiers
+// ========================================================================
+
+// @mixin hook-label-success(){}
+
+// @mixin hook-label-warning(){}
+
+// @mixin hook-label-danger(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-label-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-label(){}

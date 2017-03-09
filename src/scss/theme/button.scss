@@ -1,0 +1,221 @@
+//
+// Component: Button
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$button-line-height:                             $global-control-height - ($button-border-width * 2) !default;
+$button-small-line-height:                       $global-control-small-height - ($button-border-width * 2) !default;
+$button-large-line-height:                       $global-control-large-height - ($button-border-width * 2) !default;
+
+$button-font-size:                               $global-small-font-size !default;
+$button-large-font-size:                         $global-small-font-size !default;
+
+$button-default-background:                      transparent !default;
+$button-default-hover-background:                transparent !default;
+$button-default-active-background:               transparent !default;
+
+$button-disabled-background:                     transparent !default;
+
+$button-text-color:                              $global-emphasis-color !default;
+$button-text-hover-color:                        $global-emphasis-color !default;
+
+//
+// New
+//
+
+$button-text-transform:                          uppercase !default;
+
+$button-border-width:                            $global-border-width !default;
+
+$button-default-border:                          $global-border !default;
+$button-default-hover-border:                    darken($global-border, 20%) !default;
+$button-default-active-border:                   darken($global-border, 30%) !default;
+
+$button-disabled-border:                         $global-border !default;
+
+$button-text-border-width:                       $global-border-width !default;
+$button-text-border:                             $button-text-hover-color !default;
+
+
+// Component
+// ========================================================================
+
+@mixin hook-button(){
+    text-transform: $button-text-transform;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+    -webkit-transition-property: color, background-color, border-color;
+    transition-property: color, background-color, border-color;
+}
+
+// @mixin hook-button-hover(){}
+
+// @mixin hook-button-focus(){}
+
+// @mixin hook-button-active(){}
+
+
+// Style modifiers
+// ========================================================================
+
+@mixin hook-button-default(){ border: $button-border-width solid $button-default-border; }
+
+@mixin hook-button-default-hover(){ border-color: $button-default-hover-border; }
+
+@mixin hook-button-default-active(){ border-color: $button-default-active-border; }
+
+//
+// Primary
+//
+
+@mixin hook-button-primary(){ border: $button-border-width solid transparent; }
+
+// @mixin hook-button-primary-hover(){}
+
+// @mixin hook-button-primary-active(){}
+
+//
+// Secondary
+//
+
+@mixin hook-button-secondary(){ border: $button-border-width solid transparent; }
+
+// @mixin hook-button-secondary-hover(){}
+
+// @mixin hook-button-secondary-active(){}
+
+//
+// Danger
+//
+
+@mixin hook-button-danger(){ border: $button-border-width solid transparent; }
+
+// @mixin hook-button-danger-hover(){}
+
+// @mixin hook-button-danger-active(){}
+
+
+// Disabled
+// ========================================================================
+
+@mixin hook-button-disabled(){ border-color: $button-disabled-border; }
+
+
+// Size modifiers
+// ========================================================================
+
+// @mixin hook-button-small(){}
+
+// @mixin hook-button-large(){}
+
+
+// Text modifier
+// ========================================================================
+
+@mixin hook-button-text(){
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 100%;
+        border-bottom: $button-text-border-width solid $button-text-border;
+        -webkit-transition: right 0.3s ease-out;
+        transition: right 0.3s ease-out;
+    }
+
+}
+
+@mixin hook-button-text-hover(){
+
+    &::before { right: 0; }
+
+}
+
+@mixin hook-button-text-disabled(){
+
+    &::before { display: none; }
+
+}
+
+
+// Link modifier
+// ========================================================================
+
+// @mixin hook-button-link(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+@mixin hook-button-misc(){
+
+    /* Group
+     ========================================================================== */
+
+    /*
+     * Collapse border
+     */
+
+    .uk-button-group > .uk-button:nth-child(n+2),
+    .uk-button-group > div:nth-child(n+2) .uk-button { margin-left: -$button-border-width; }
+
+    /*
+     * Create position context to superimpose the successor elements border
+     * Known issue: If you use an `a` element as button and an icon inside,
+     * the active state will not work if you click the icon inside the button
+     * Workaround: Just use a `button` or `input` element as button
+     */
+
+    .uk-button-group .uk-button:hover,
+    .uk-button-group .uk-button:focus,
+    .uk-button-group .uk-button:active,
+    .uk-button-group .uk-button.uk-active {
+        position: relative;
+        z-index: 1;
+    }
+
+}
+
+
+// Inverse
+// ========================================================================
+
+$inverse-button-default-background:             transparent !default;
+$inverse-button-default-color:                  $inverse-global-emphasis-color !default;
+$inverse-button-default-hover-background:       transparent !default;
+$inverse-button-default-hover-color:            $inverse-global-emphasis-color !default;
+$inverse-button-default-active-background:      transparent !default;
+$inverse-button-default-active-color:           $inverse-global-emphasis-color !default;
+
+$inverse-button-text-color:                     $inverse-global-emphasis-color !default;
+$inverse-button-text-hover-color:               $inverse-global-emphasis-color !default;
+
+//
+// Hooks
+//
+
+@mixin hook-inverse-button-default(){ border-color: $inverse-global-color; }
+@mixin hook-inverse-button-default-hover(){ border-color: $inverse-global-emphasis-color; }
+@mixin hook-inverse-button-default-active(){ border-color: $inverse-global-emphasis-color; }
+
+// @mixin hook-inverse-button-primary(){}
+// @mixin hook-inverse-button-primary-hover(){}
+// @mixin hook-inverse-button-primary-active(){}
+
+// @mixin hook-inverse-button-secondary(){}
+// @mixin hook-inverse-button-secondary-hover(){}
+// @mixin hook-inverse-button-secondary-active(){}
+
+@mixin hook-inverse-button-text(){
+    &::before { border-bottom-color: $inverse-global-emphasis-color; }
+}
+// @mixin hook-inverse-button-text-hover(){}
+// @mixin hook-inverse-button-text-disabled(){}
